@@ -1,0 +1,29 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8763
+
+spring:
+  application:
+    name: eureka-zuul
+
+zuul:
+  routes:
+    eurekaclient:
+      path: /clienttest
+      serviceId: eureka-client
+    baidu:
+      path: /baidu
+      url: http://www.baidu.com
+    rest:
+      path: /rest
+      serviceId: eureka-client
+    test1:
+      path: /aaa/**
+      serviceId: eureka-client
+    test2:
+      path: /bbb/**
+      serviceId: eureka-client
